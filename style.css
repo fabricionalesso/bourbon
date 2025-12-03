@@ -685,6 +685,7 @@ footer {
 
 .form-group {
     margin-bottom: 25px;
+	
 }
 
 .form-group label {
@@ -1085,10 +1086,12 @@ textarea.form-control {
 
 .radio-label {
     font-weight: normal;
+	
 }
 
 .file-input {
-    padding: 8px 0;
+    padding: 5px 0;
+	width: 48%;
 }
 
 .form-buttons {
