@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rua XV de Novembro recebe novo asfalto - Cambará+</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Estilo adicional para aumentar as imagens */
+        .photo-container {
+            width: 100%;
+            height: 500px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            background-color: #f8f9fa;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            overflow: hidden;
+        }
+        
+        .photo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        
+        /* Container para comparação antes/depois */
+        .comparison-container {
+            display: flex;
+            gap: 20px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        
+        .comparison-box {
+            flex: 1;
+            min-width: 300px;
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            border: 1px solid #eaeaea;
+        }
+        
+        .comparison-label {
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            display: inline-block;
+        }
+        
+        .before-label {
+            background-color: #fff2f2;
+            color: #dc3545;
+            border-left: 4px solid #dc3545;
+        }
+        
+        .after-label {
+            background-color: #f0f9ff;
+            color: #1e3a5f;
+            border-left: 4px solid #1e3a5f;
+        }
+        
+        .comparison-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 15px;
+        }
+        
+        /* Timeline */
+        .timeline-box {
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            padding: 25px;
+            margin: 25px 0;
+            border-left: 4px solid #ff6b35;
+        }
+        
+        .timeline-item {
+            display: flex;
+            margin-bottom: 20px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #eaeaea;
+        }
+        
+        .timeline-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+        
+        .timeline-date {
+            flex: 0 0 120px;
+            font-weight: 600;
+            color: #1e3a5f;
+        }
+        
+        .timeline-content {
+            flex: 1;
+        }
+        
+        /* Check icons */
+        .check-icon {
+            color: #28a745;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        /* Share buttons */
+        .share-section {
+            text-align: center;
+            padding: 25px;
+            background-color: #f0f9ff;
+            border-radius: 10px;
+            margin: 30px 0;
+            border: 1px solid #1e3a5f;
+        }
+        
+        .share-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .share-btn {
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        
+        .facebook-btn {
+            background-color: #1877f2;
+            color: white;
+        }
+        
+        .whatsapp-btn {
+            background-color: #25d366;
+            color: white;
+        }
+        
+        .twitter-btn {
+            background-color: #1da1f2;
+            color: white;
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Ajuste para ocupar 100% da largura sem sidebar */
+        .main-content-single {
+            width: 100%;
+            margin: 30px 0;
+        }
+        
+        .post-section-full {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Badge de resolvido */
+        .resolved-badge {
+            display: inline-block;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            margin-left: 15px;
+            border: 1px solid #c3e6cb;
+        }
+        
+        /* Success box */
+        .success-box {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 20px;
+            margin: 30px 0;
+            border-radius: 0 8px 8px 0;
+        }
+        
+        /* Destaque para estatísticas */
+        .stats-highlight {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 30px 0;
+            text-align: center;
+        }
+        
+        .stat-item {
+            flex: 1;
+            min-width: 150px;
+            padding: 15px;
+            background-color: #f0f9ff;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            border-top: 4px solid #1e3a5f;
+        }
+        
+        .stat-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1e3a5f;
+            margin-bottom: 5px;
+        }
+        
+        .stat-text {
+            font-size: 14px;
+            color: #555;
+            font-weight: 600;
+        }
+        
+        @media (max-width: 768px) {
+            .photo-container {
+                height: 350px;
+            }
+            
+            .comparison-container {
+                flex-direction: column;
+            }
+            
+            .comparison-box {
+                min-width: 100%;
+            }
+            
+            .post-section-full {
+                padding: 25px;
+            }
+            
+            .timeline-item {
+                flex-direction: column;
+            }
+            
+            .timeline-date {
+                margin-bottom: 10px;
+            }
+            
+            .stats-highlight {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .stat-item {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .photo-container {
+                height: 280px;
+            }
+            
+            .post-section-full {
+                padding: 20px;
+            }
+            
+            .share-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .share-btn {
+                width: 100%;
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho com menu -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html">
+                <div class="logo">
+                    <div class="logo-img"></div>
+                    <div class="logo-text">CAMBARÁ<span>+</span><br>O portal do cidadão</div>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="Reclamacoes.html">Reclamações</a></li>
+                    <li><a href="Sugestoes.html">Sugestões</a></li>
+                    <li><a href="Resolucoes.html">Resoluções</a></li>
+                    <li><a href="enviar.html">Enviar</a></li>
+                    <li><a href="Enquetes.html">Enquetes</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="Contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Área principal única (sem sidebar) -->
+        <div class="main-content-single">
+            <section class="post-section-full">
+                <div class="post-header">
+                    <span class="post-category">Infraestrutura</span>
+                    <span class="resolved-badge">✅ PROBLEMA RESOLVIDO</span>
+                    <h1 class="post-title">Rua XV de Novembro recebe novo asfalto após meses de buracos</h1>
+                    <div class="post-meta">
+                        <span><span class="icon">📅</span> Postado em: 10 de Abril, 2025</span>
+                        <span><span class="icon">👁️</span> 723 visualizações</span>
+                        <span><span class="icon">💬</span> 58 comentários</span>
+                    </div>
+                </div>
+               
+                <!-- Imagem principal AMPLIADA -->
+                <div class="photo-container">
+                    <img src="http://media.imperatriz.ma.gov.br/GGeCkh4OuNs9GLiMza06uRVJnjM=/750x0/novo.imperatriz.ma.gov.br/media/site/content/article/WhatsApp_Image_2022-07-25_at_15.27.18.jpeg" 
+                         alt="Rua XV de Novembro com novo asfalto">
+                </div>
+                <div class="photo-caption">
+                    Rua XV de Novembro após a conclusão do recapeamento asfáltico.
+                </div>
+               
+                <!-- Comparação antes/depois -->
+                <div class="comparison-container">
+                    <div class="comparison-box">
+                        <div class="comparison-label before-label">❌ ANTES: Rua esburacada</div>
+                        <img src="https://netdiario.com.br/wp-content/uploads/2021/11/2021.01.05-00.11.56-01.jpg"
+                             alt="Rua XV de Novembro com buracos" class="comparison-img">
+                        <p>Trecho de 500m da rua com buracos profundos que causavam danos a veículos</p>
+                    </div>
+                   
+                    <div class="comparison-box">
+                        <div class="comparison-label after-label">✅ DEPOIS: Nova pavimentação</div>
+                        <img src="http://media.imperatriz.ma.gov.br/GGeCkh4OuNs9GLiMza06uRVJnjM=/750x0/novo.imperatriz.ma.gov.br/media/site/content/article/WhatsApp_Image_2022-07-25_at_15.27.18.jpeg"
+                             alt="Rua XV de Novembro com novo asfalto" class="comparison-img">
+                        <p>Asfalto novo e uniforme com sinalização horizontal refeita</p>
+                    </div>
+                </div>
+               
+                <div class="post-content">
+                    <div class="success-box">
+                        <div class="status-label">🎉 SUCESSO NA RESOLUÇÃO:</div>
+                        <div>Após 4 meses de reclamações dos moradores e comerciantes, a Prefeitura de Cambará concluiu o recapeamento asfáltico na Rua XV de Novembro. O trecho de 500 metros que estava em condições precárias agora conta com pavimentação nova e segura.</div>
+                    </div>
+                    
+                    <p>A <strong>Rua XV de Novembro</strong>, uma das principais vias do centro comercial de Cambará, finalmente teve seu problema crônico de buracos resolvido. Após intensa pressão da comunidade através do portal Cambará+ e reuniões com a Secretaria de Obras, a prefeitura concluiu na última quarta-feira (08/04) o recapeamento completo do trecho mais crítico.</p>
+
+                   
+                    <h3>Linha do tempo da resolução</h3>
+                    
+                    <div class="timeline-box">
+                        <div class="timeline-item">
+                            <div class="timeline-date">15 de Dez, 2024</div>
+                            <div class="timeline-content">
+                                <strong>Primeiras reclamações:</strong> Moradores e comerciantes começam a reportar os buracos após o período de chuvas
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">10 de Jan, 2025</div>
+                            <div class="timeline-content">
+                                <strong>Reclamação formal no Cambará+:</strong> Postagem ganha destaque com 210 visualizações em 24h e 35 comentários
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">25 de Jan, 2025</div>
+                            <div class="timeline-content">
+                                <strong>Vistoria técnica:</strong> Engenheiros da prefeitura avaliam o trecho e quantificam os danos
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">15 de Mar, 2025</div>
+                            <div class="timeline-content">
+                                <strong>Inclusão no cronograma:</strong> Obra é incluída no cronograma de manutenção urbana
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">05 de Abr, 2025</div>
+                            <div class="timeline-content">
+                                <strong>Início dos trabalhos:</strong> Equipe inicia a preparação do terreno e remoção do asfalto danificado
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-date">08 de Abr, 2025</div>
+                            <div class="timeline-content">
+                                <strong>Conclusão da obra:</strong> Asfaltamento concluído e rua liberada para tráfego
+                            </div>
+                        </div>
+                    </div>
+                   
+                    <h3>Melhorias implementadas</h3>
+                    <p>A prefeitura não apenas tapou os buracos, mas realizou uma obra completa de recapeamento:</p>
+                    
+                    <ul>
+                        <li><span class="check-icon">✓</span> Remoção completa do asfalto antigo e danificado</li>
+                        <li><span class="check-icon">✓</span> Compactação adequada do subleito</li>
+                        <li><span class="check-icon">✓</span> Aplicação de 120 toneladas de asfalto novo</li>
+                        <li><span class="check-icon">✓</span> Refechamento completo da sinalização horizontal</li>
+                        <li><span class="check-icon">✓</span> Ajuste dos bueiros e sarjetas para melhor drenagem</li>
+                    </ul>
+                   
+                    <div class="solution-box">
+                        <h4>📊 Dados da Resolução:</h4>
+                        <ul>
+                            <li><strong>Tempo total do problema:</strong> 4 meses</li>
+                            <li><strong>Tempo de resposta após reclamação formal:</strong> 15 dias úteis</li>
+                            <li><strong>Extensão recapeada:</strong> 500 metros lineares</li>
+                            <li><strong>Investimento:</strong> R$ 85.000,00 (incluindo mão de obra e materiais)</li>
+                            <li><strong>Equipe envolvida:</strong> 12 profissionais (engenheiros, operários e auxiliares)</li>
+                            <li><strong>Previsão de durabilidade:</strong> 8-10 anos com manutenção preventiva</li>
+                        </ul>
+                    </div>
+                   
+                    <h3>Impacto na comunidade</h3>
+                    <p>"A Rua XV de Novembro é vital para o comércio local. Os buracos estavam causando prejuízos aos nossos clientes e danificando veículos. Agora, com o asfalto novo, a via está segura e acessível para todos", comemorou Maria Silva, proprietária de uma loja na rua há 15 anos.</p>
+                    
+                    <p>Além dos benefícios para o comércio, a obra trouxe mais segurança para os pedestres e reduziu significativamente o risco de acidentes de trânsito na região.</p>
+                   
+                    <p>"Este é um exemplo claro de como a participação popular funciona. As mais de 50 reclamações formalizadas através do Cambará+ foram essenciais para priorizarmos esta obra", afirmou o secretário de Obras, João Pereira. "Estamos trabalhando para reduzir o tempo entre a reclamação e a solução em todos os casos."</p>
+                   
+                    <h3>Próximos passos</h3>
+                    <p>A prefeitura anunciou que irá monitorar o desempenho do novo asfalto nos próximos meses e já incluiu outras 5 ruas do centro no cronograma de recapeamento para o segundo semestre de 2025. O plano é atender todas as vias com problemas críticos até o final de 2026.</p>
+                    
+               <div class="post-meta" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eaeaea;">
+                    <span><span class="icon">📍</span> Local: Rua XV de Novembro, Centro - Cambará/PR</span>
+                    <span><span class="icon">🏛️</span> Responsável: Secretaria de Obras</span>
+                    <span><span class="icon">✅</span> Status: Concluído em 08/04/2025</span>
+                </div>
+					
+               
+            </section>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Cambará+</h3>
+                    <p>Portal de reclamações e sugestões da<br> cidade de Cambará-PR.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <a href="index.html">Início</a>
+                    <a href="enviar.html">Enviar Reclamação/Sugestão/Elogio</a>
+                    <a href="resolucoes.html">Acompanhar Resoluções</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contato</h3>
+                    <p>E-mail: contato@cambaramais.com.br</p>
+                    <p>Telefone: (43) 9999-9999</p>
+                    <p>Endereço: Rua A, nº 999 - Centro - Cambará/PR</p>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Cambará+. Todos os direitos reservados. 
+                <br>Desenvolvido pelos alunos do curso Programador WEB - Instituto Bourbon.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Funções para compartilhamento (simplificadas)
+        function shareOnFacebook() {
+            const url = encodeURIComponent(window.location.href);
+            const title = encodeURIComponent(document.title);
+            window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}&quote=${title}`, '_blank');
+        }
+        
+        function shareOnWhatsApp() {
+            const text = encodeURIComponent(`Confira esta notícia: ${document.title} - ${window.location.href}`);
+            window.open(`https://wa.me/?text=${text}`, '_blank');
+        }
+        
+        function shareOnTwitter() {
+            const url = encodeURIComponent(window.location.href);
+            const text = encodeURIComponent(document.title);
+            window.open(`https://twitter.com/intent/tweet?url=${url}&text=${text}`, '_blank');
+        }
+        
+        // Adiciona funcionalidade aos botões de compartilhamento
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Página carregada - Rua XV de Novembro recebe novo asfalto');
+        });
+    </script>
+</body>
+</html>
